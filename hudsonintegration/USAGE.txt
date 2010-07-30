@@ -1,0 +1,9 @@
+Usage of hudsonintegration
+=============================================
+
+
+Usage:
+
+    >>> import hudsonintegration
+
+Show how to import the main classes and how to use them.
