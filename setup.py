@@ -13,6 +13,9 @@ long_description = '\n\n'.join([
 
 install_requires = [
     'setuptools',
+    'coverage',
+    'pep8',
+    'pyflakes',
     ],
 
 tests_require = [
@@ -20,13 +23,13 @@ tests_require = [
 
 setup(name='hudsonintegration',
       version=version,
-      description="TODO",
+      description="Provides command that runs tests like we want for hudson",
       long_description=long_description,
       # Get strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[],
       keywords=[],
-      author='TODO',
-      author_email='TODO@nelen-schuurmans.nl',
+      author='Reinout van Rees',
+      author_email='reinout.vanrees@nelen-schuurmans.nl',
       url='',
       license='GPL',
       packages=['hudsonintegration'],
