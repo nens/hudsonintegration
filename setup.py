@@ -13,7 +13,7 @@ long_description = '\n\n'.join([
 
 install_requires = [
     'setuptools',
-    'coverage',
+    'coverage > 3.3.1',
     'pep8',
     'pyflakes',
     ],
