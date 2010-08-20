@@ -25,5 +25,19 @@ def run_tests():
     go_to_checkout()
     system("python bootstrap.py -d")
     system("bin/buildout -v")
-    coverage_script = os.path.join(bin_dir(), 'coverage')
-    system("%s run bin/test" % coverage_script)
+    coverage = os.path.join(bin_dir(), 'coverage')
+    system("%s run bin/test" % coverage)
+    sys.exit(0)
+
+
+def create_reports():
+    go_to_checkout()
+    coverage = os.path.join(bin_dir(), 'coverage')
+    pep8 = os.path.join(bin_dir(), 'pep8')
+    pyflakes = os.path.join(bin_dir(), 'pyflakes')
+    system(("%s lizard_sticky | " +
+            "perl -ple 's/: ([WE]\\d+)/: [$1]/' > pep8.txt") % pep8)
+    system(("%s lizard_sticky | " +
+            "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % pyflakes)
+    system("%s xml" % coverage)
+    sys.exit(0)

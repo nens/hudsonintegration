@@ -41,5 +41,6 @@ setup(name='hudsonintegration',
       entry_points={
           'console_scripts': [
             'run_tests = hudsonintegration.runner:run_tests',
+            'create_reports = hudsonintegration.runner:create_reports',
           ]},
       )
