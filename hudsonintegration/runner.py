@@ -23,7 +23,7 @@ def go_to_checkout():
 
 def run_tests():
     go_to_checkout()
-    system("python bootstrap -d")
+    system("python bootstrap.py -d")
     system("bin/buildout -v")
     coverage_script = os.path.join(bin_dir(), 'coverage')
     system("%s run bin/test" % coverage_script)
