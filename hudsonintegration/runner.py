@@ -3,7 +3,17 @@ import sys
 
 from hudsonintegration.utils import system
 
-# /var/lib/hudson/jobs/lizard-map/workspace/trunk
+def extract_name():
+    """Return guessed package name.
+
+    "/var/lib/hudson/jobs/lizard-map/workspace/trunk" -> lizard_map
+
+    """
+    cwd = os.getcwd()
+    name = cwd.split('/jobs/')[1]
+    name = name.split('/')[0]
+    name = name.replace('-', '_')
+    return name
 
 
 def bin_dir():
@@ -35,9 +45,11 @@ def create_reports():
     coverage = os.path.join(bin_dir(), 'coverage')
     pep8 = os.path.join(bin_dir(), 'pep8')
     pyflakes = os.path.join(bin_dir(), 'pyflakes')
-    system(("%s lizard_sticky | " +
-            "perl -ple 's/: ([WE]\\d+)/: [$1]/' > pep8.txt") % pep8)
-    system(("%s lizard_sticky | " +
-            "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % pyflakes)
+    system(("%s %s | " +
+            "perl -ple 's/: ([WE]\\d+)/: [$1]/' > pep8.txt") % (
+            pep8, extract_name()))
+    system(("%s %s | " +
+            "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % (
+            pyflakes, extract_name()))
     system("%s xml" % coverage)
     sys.exit(0)
