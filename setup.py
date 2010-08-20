@@ -40,5 +40,6 @@ setup(name='hudsonintegration',
       extras_require = {'test': tests_require},
       entry_points={
           'console_scripts': [
+            'run_tests = hudsonintegration.runner:run_tests',
           ]},
       )
