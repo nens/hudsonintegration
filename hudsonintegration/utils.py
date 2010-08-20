@@ -32,4 +32,4 @@ def system(command, input=None):
         print result
         sys.exit(1)
 
-    return result
+    print result
