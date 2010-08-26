@@ -5,4 +5,9 @@ Changelog of hudsonintegration
 0.1 (unreleased)
 ----------------
 
-- Initial library skeleton created by thaskel.  [your name]
+- Added jslint checker.
+
+- Added basic run_test and create_reports scripts that basically mimic the
+  bash scripts used in hudson.
+
+- Initial library skeleton created by thaskel.  [Reinout]

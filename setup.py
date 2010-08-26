@@ -42,5 +42,7 @@ setup(name='hudsonintegration',
           'console_scripts': [
             'run_tests = hudsonintegration.runner:run_tests',
             'create_reports = hudsonintegration.runner:create_reports',
+            'run_jslint = hudsonintegration.runner:run_jslint',
+            'jslint = hudsonintegration.jslint:main',
           ]},
       )
