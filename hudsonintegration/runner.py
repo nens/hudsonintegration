@@ -59,5 +59,5 @@ def create_reports():
 def run_jslint():
     go_to_checkout()
     jslint = os.path.join(bin_dir(), 'jslint')
-    system("%s %s" % jslint, extract_name())
+    system("%s %s" % (jslint, extract_name()))
     sys.exit(0)
