@@ -1,6 +1,7 @@
 import os
-import commands
 import sys
+
+from hudsonintegration.utils import system
 
 RHINO = 'rhino'
 JSLINT = os.path.abspath(os.path.join( os.path.dirname(__file__),
@@ -24,15 +25,5 @@ def main():
                     if filename.endswith('.js')]
 
     for javascript_file in javascript_files:
-
-        (status, output) = commands.getstatusoutput(
-            ' '.join([RHINO, JSLINT, javascript_file]))
-        if status == 0:
-            # Success!
-            print "%s is OK" % javascript_file
-        else:
-            print "Error checking %s" % javascript_file
-            print "exit code:", status
-            print output
-            sys.exit(status)
+        system('%s %s %s' % (RHINO, JSLINT, javascript_file))
     sys.exit(0)
