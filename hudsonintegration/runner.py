@@ -3,6 +3,7 @@ import sys
 
 from hudsonintegration.utils import system
 
+
 def extract_name():
     """Return guessed package name.
 
@@ -46,7 +47,7 @@ def create_reports():
     pep8 = os.path.join(bin_dir(), 'pep8')
     pyflakes = os.path.join(bin_dir(), 'pyflakes')
     system(("%s %s | " +
-            "perl -ple 's/: ([WE]\\d+)/: [$1]/' > pep8.txt") % (
+            "perl -ple 's/: [WE](\\d+)/: [W$1]/' > pep8.txt") % (
             pep8, extract_name()))
     system(("%s %s | " +
             "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % (
