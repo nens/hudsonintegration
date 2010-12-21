@@ -53,6 +53,7 @@ def create_reports():
             "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % (
             pyflakes, extract_name()))
     system("%s xml" % coverage)
+    system("/var/lib/hudson/doc.lizardsystem.nl/bin/generate_doc")
     sys.exit(0)
 
 
