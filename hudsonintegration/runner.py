@@ -42,16 +42,17 @@ def run_tests():
 
 
 def create_reports():
+    package_name = extract_name() if len(sys.argv) < 2 else sys.argv[1]
     go_to_checkout()
     coverage = os.path.join(bin_dir(), 'coverage')
     pep8 = os.path.join(bin_dir(), 'pep8')
     pyflakes = os.path.join(bin_dir(), 'pyflakes')
     system(("%s %s | " +
             "perl -ple 's/: [WE](\\d+)/: [W$1]/' > pep8.txt") % (
-            pep8, extract_name()))
+            pep8, package_name))
     system(("%s %s | " +
             "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % (
-            pyflakes, extract_name()))
+            pyflakes, package_name))
     system("%s xml" % coverage)
     sys.exit(0)
 
