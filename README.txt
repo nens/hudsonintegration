@@ -11,7 +11,8 @@ That's why we have a couple of scripts here that auto-detect things
 and work from N&S-internal conventions.  ("Convention" mostly means
 "that's what hudsonintegration expects so that's what we do", but ok).
 
-The commands:
+Available commands
+------------------
 
 - **run_tests**: run bootstrap, buildout and run the tests in coverage
   mode.
@@ -27,3 +28,9 @@ The commands:
 - **jslint**: run the included ``jslint.js`` with "rhino".  Wrapper as
   jslint itself is not handily installable otherwise.
 
+
+Installation
+------------
+
+Hudsonintegration is installed on buildbot.lizardsystem.nl in
+``/var/lib/jenkins/hudsonintegration``.
