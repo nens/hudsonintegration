@@ -5,6 +5,8 @@ Changelog of hudsonintegration
 0.1 (unreleased)
 ----------------
 
+- Added documentation.
+
 - Added jslint checker.
 
 - Added basic run_test and create_reports scripts that basically mimic the

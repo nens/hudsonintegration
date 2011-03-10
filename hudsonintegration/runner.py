@@ -33,6 +33,7 @@ def go_to_checkout():
 
 
 def run_tests():
+    """Main method for the 'run_tests' command."""
     go_to_checkout()
     system("python bootstrap.py")
     system("bin/buildout -v")
@@ -42,6 +43,7 @@ def run_tests():
 
 
 def create_reports():
+    """Main method for the 'create_reports' command."""
     package_name = extract_name() if len(sys.argv) < 2 else sys.argv[1]
     go_to_checkout()
     coverage = os.path.join(bin_dir(), 'coverage')
@@ -58,6 +60,7 @@ def create_reports():
 
 
 def run_jslint():
+    """Main method for the 'run_jslint' command."""
     go_to_checkout()
     jslint = os.path.join(bin_dir(), 'jslint')
     system("%s %s" % (jslint, extract_name()))
