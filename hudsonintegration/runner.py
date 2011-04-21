@@ -55,7 +55,7 @@ def create_reports():
             "perl -ple 's/: [WE](\\d+)/: [W$1]/' > pep8.txt") % (
             pep8, package_name))
     system(("%s %s | " +
-            "grep -v /migrations/ " +
+            "grep -v /migrations/ | " +
             "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % (
             pyflakes, package_name))
     system("%s xml" % coverage)
