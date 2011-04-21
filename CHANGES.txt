@@ -5,6 +5,11 @@ Changelog of hudsonintegration
 0.1 (unreleased)
 ----------------
 
+- Excluding generated django south migration files from pep8 and pyflakes.
+
+- Showing and counting all pep8 errors, not just the first instance of an
+  error.
+
 - Added documentation.
 
 - Added jslint checker.

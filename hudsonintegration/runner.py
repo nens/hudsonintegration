@@ -49,10 +49,13 @@ def create_reports():
     coverage = os.path.join(bin_dir(), 'coverage')
     pep8 = os.path.join(bin_dir(), 'pep8')
     pyflakes = os.path.join(bin_dir(), 'pyflakes')
-    system(("%s %s | " +
+    # Below: -r means recursive, it shows all instances of an error.
+    # And we exclude generated django south migrations.
+    system(("%s -r --exclude=migrations %s | " +
             "perl -ple 's/: [WE](\\d+)/: [W$1]/' > pep8.txt") % (
             pep8, package_name))
     system(("%s %s | " +
+            "grep -v /migrations/ " +
             "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % (
             pyflakes, package_name))
     system("%s xml" % coverage)
