@@ -8,7 +8,8 @@ Changelog of hudsonintegration
 - Excluding generated django south migration files from pep8 and pyflakes.
 
 - Showing and counting all pep8 errors, not just the first instance of an
-  error.
+  error. This new behaviour is prevented if you pass 'NOREPEAT' (without the
+  quotes) as a command line option.
 
 - Added documentation.
 
