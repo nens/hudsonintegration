@@ -51,9 +51,12 @@ def create_reports():
     pyflakes = os.path.join(bin_dir(), 'pyflakes')
     # Below: -r means recursive, it shows all instances of an error.
     # And we exclude generated django south migrations.
-    system(("%s -r --exclude=migrations %s | " +
+    pep8_args = '--exclude=migrations'
+    if not 'NOREPEAT' in sys.argv:
+        pep8_args += ' -r'
+    system(("%s %s %s | " +
             "perl -ple 's/: [WE](\\d+)/: [W$1]/' > pep8.txt") % (
-            pep8, package_name))
+            pep8, pep8_args, package_name))
     system(("%s %s | " +
             "grep -v /migrations/ | " +
             "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % (
