@@ -17,8 +17,10 @@ Available commands
 - **run_tests**: run bootstrap, buildout and run the tests in coverage
   mode.
 
-- **create_reports**: create xml coverage report and a pep8/pyflakes
-  report for Jenkins' reporting statistics.
+- **create_reports**: create xml coverage report and a pep8/pyflakes report
+  for Jenkins' reporting statistics. Pass 'NOREPEAT' (without the quotes) as a
+  command line option to ``create_reports`` if you don't want pep8 to report
+  on every error, but just on the first error.
 
 - **run_jslint**: run jslint on the package.  Works fine if there are
   only custom javascripts inside the package directory.  If there are
