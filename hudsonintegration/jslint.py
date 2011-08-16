@@ -5,7 +5,7 @@ from hudsonintegration.utils import system
 
 RHINO = 'rhino'
 JSLINT = os.path.abspath(os.path.join( os.path.dirname(__file__),
-                                       'jslint.js'))
+                                       'jshint.js'))
 
 
 def main():
