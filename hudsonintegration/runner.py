@@ -26,10 +26,14 @@ def bin_dir():
 
 def go_to_checkout():
     """Go to the directory with the actual checkout."""
-    # We're in the workspace with one directory: the checkout.
     contents = os.listdir('.')
-    assert len(contents) == 1
-    os.chdir(contents[0])
+    if len(contents) == 1:
+        # We're in the workspace with one directory: the trunk checkout.
+        # Chdir into it.
+        os.chdir(contents[0])
+    else:
+        # Git checkout.
+        pass
 
 
 def run_tests():
