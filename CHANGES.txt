@@ -5,6 +5,8 @@ Changelog of hudsonintegration
 0.1 (unreleased)
 ----------------
 
+- Compensating for possible git checkouts.
+
 - Added jshint instead of jslint for nicer javascript checking.
 
 - Excluding generated django south migration files from pep8 and pyflakes.
