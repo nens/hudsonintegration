@@ -5,6 +5,9 @@ Changelog of hudsonintegration
 0.1 (unreleased)
 ----------------
 
+- Running bootstrap with python2.6 (jenkins' machine now has python 2.7 as the
+  default and we mostly use 2.6).
+
 - Compensating for possible git checkouts.
 
 - Added jshint instead of jslint for nicer javascript checking.
