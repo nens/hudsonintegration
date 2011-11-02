@@ -1,3 +1,4 @@
+from fabric.api import env
 from fabric.api import sudo
 from fabric.context_managers import cd
 
