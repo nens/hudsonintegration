@@ -5,6 +5,9 @@ Changelog of hudsonintegration
 0.1 (unreleased)
 ----------------
 
+- Compensating for the newer sites that have no buildout.cfg anymore. You need
+  to symlink development.cfg to buildout.cfg there.
+
 - Running bootstrap with python2.6 (jenkins' machine now has python 2.7 as the
   default and we mostly use 2.6).
 
