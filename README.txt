@@ -36,3 +36,6 @@ Installation
 
 Hudsonintegration is installed on buildbot.lizardsystem.nl in
 ``/var/lib/jenkins/hudsonintegration``.
+
+Just run ``bin/fab update`` to install an update on the server (after you've
+committed all your changes).
