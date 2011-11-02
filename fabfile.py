@@ -4,6 +4,7 @@ from fabric.context_managers import cd
 
 
 env['hosts'] = ['buildbot.lizardsystem.nl']
+env['sudo_prefix'] += '-H '
 
 
 def update():
