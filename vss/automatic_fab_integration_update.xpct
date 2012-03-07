@@ -1,4 +1,8 @@
 #!/usr/bin/expect --
+#
+# interaction with ./bin/fab integration update
+#
+# $Id$
 
 set timeout 90
 spawn ./bin/fab integration update
