@@ -4,7 +4,7 @@
 #
 # $Id$
 
-set timeout 90
+set timeout 900
 spawn ./bin/fab integration update
 
 expect "Login password"
