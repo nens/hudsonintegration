@@ -7,7 +7,7 @@
 set timeout 90
 spawn ./bin/fab integration update
 
-expect "[10.100.134.150] Login password"
+expect "Login password"
 send "u}v?]Lwverh@bcHHP4\n"
 
 expect "Switch to trunk on 10.100.134.150?"
