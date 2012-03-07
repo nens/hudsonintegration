@@ -1,0 +1,15 @@
+#!/usr/bin/expect --
+
+set timeout 90
+spawn ./bin/fab integration update
+
+expect "[10.100.134.150] Login password"
+send "u}v?]Lwverh@bcHHP4\n"
+
+expect "Switch to trunk on 10.100.134.150?"
+send "Y\n"
+
+expect "Sync and migrate the database?"
+send "Y"
+
+interact
