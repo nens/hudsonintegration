@@ -43,8 +43,12 @@ def run_tests():
         system("ln -s development.cfg buildout.cfg")
     system("python bootstrap.py")
     system("bin/buildout -v")
-    coverage = os.path.join(bin_dir(), 'coverage')
-    system("%s run bin/test" % coverage)
+    if (os.path.exists('setup.cfg')
+        and ('with-coverage' in open('setup.cfg').read())):
+        system('bin/test')
+    else:
+        coverage = os.path.join(bin_dir(), 'coverage')
+        system("%s run bin/test" % coverage)
     sys.exit(0)
 
 
