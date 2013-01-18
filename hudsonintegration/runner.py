@@ -41,7 +41,7 @@ def run_tests():
     go_to_checkout()
     if not os.path.exists('buildout.cfg'):
         system("ln -s development.cfg buildout.cfg")
-    system("python2.6 bootstrap.py")
+    system("python bootstrap.py")
     system("bin/buildout -v")
     coverage = os.path.join(bin_dir(), 'coverage')
     system("%s run bin/test" % coverage)

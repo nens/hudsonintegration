@@ -5,6 +5,9 @@ Changelog of hudsonintegration
 0.1 (unreleased)
 ----------------
 
+- Using the default (2.7) python again now that we've updated to 12.04 on the
+  buildbot. We use 2.7 everywhere.
+
 - Compensating for the newer sites that have no buildout.cfg anymore. You need
   to symlink development.cfg to buildout.cfg there.
 
