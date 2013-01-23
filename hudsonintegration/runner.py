@@ -36,6 +36,13 @@ def go_to_checkout():
         pass
 
 
+def has_nose_coverage_setup():
+    if os.path.exists('setup.cfg'):
+        if 'with-coverage' in open('setup.cfg').read():
+            return True
+    return False
+
+
 def run_tests():
     """Main method for the 'run_tests' command."""
     go_to_checkout()
@@ -43,8 +50,7 @@ def run_tests():
         system("ln -s development.cfg buildout.cfg")
     system("python bootstrap.py")
     system("bin/buildout -v")
-    if (os.path.exists('setup.cfg')
-        and ('with-coverage' in open('setup.cfg').read())):
+    if has_nose_coverage_setup():
         system('bin/test')
     else:
         coverage = os.path.join(bin_dir(), 'coverage')
@@ -71,7 +77,10 @@ def create_reports():
             "grep -v /migrations/ | " +
             "perl -ple 's/:\\ /: [E] /' >> pep8.txt") % (
             pyflakes, package_name))
-    system("%s xml" % coverage)
+    if not has_nose_coverage_setup():
+        # Nose with coverage integration enabled already generates an xml file
+        # for us.
+        system("%s xml" % coverage)
     sys.exit(0)
 
 
