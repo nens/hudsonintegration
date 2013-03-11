@@ -4,10 +4,9 @@ import os.path
 version = '0.1dev'
 
 long_description = '\n\n'.join([
-    open('README.txt').read(),
-    open('TODO.txt').read(),
-    open('CREDITS.txt').read(),
-    open('CHANGES.txt').read(),
+    open('README.rst').read(),
+    open('CREDITS.rst').read(),
+    open('CHANGES.rst').read(),
     ])
 
 install_requires = [
