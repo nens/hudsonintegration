@@ -11,7 +11,10 @@ def extract_name():
 
     """
     cwd = os.getcwd()
-    name = cwd.split('/jobs/')[1]
+    if '/jobs' in cwd:
+        name = cwd.split('/jobs/')[1]
+    else:
+        name = cwd.split('/workspace/')[1]
     name = name.split('/')[0]
     name = name.replace('-', '_')
     return name
